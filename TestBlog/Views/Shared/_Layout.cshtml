@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <!-- <a asp-controller="Home" asp-action="Post">Create a post</a>-->
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Auth" asp-action="Logout">Logout</a>
+            <a asp-controller="Home" asp-action="Edit">Create a post</a>
+        }
+        else
+        {
+            <a asp-controller="Auth" asp-action="Login">Sign in</a>
+        }
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

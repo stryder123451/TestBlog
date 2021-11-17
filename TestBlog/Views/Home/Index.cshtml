@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Post>
+@{
+    Layout = "_Layout";
+}
+
+<h1>Recent Posts:</h1>
+
+<div>
+    <ul>
+        @foreach (var x in Model)
+        {
+        <li>
+            <a asp-controller="Home" asp-action="Post" asp-route-id="@x.Id">
+                @x.Title
+            </a>
+            <a asp-controller="Home" asp-action="Edit" asp-route-id="@x.Id">
+                Edit
+            </a>
+            <a asp-controller="Home" asp-action="Remove" asp-route-id="@x.Id">
+                Remove
+            </a>
+        </li>
+        }
+    </ul>
+</div>
